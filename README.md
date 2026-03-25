@@ -7,7 +7,9 @@ Incluye sistema de guardado y carga de partidas, administrador de partidas guard
 
 Ideal para practicar programación estructurada y orientada a objetos en C++ y manejo de archivos.
 
-# 🕹️ Uso
+---
+
+## 🕹️ Uso
 
 Ejecuta el programa compilado
 
