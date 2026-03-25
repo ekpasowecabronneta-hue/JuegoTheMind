@@ -1,4 +1,4 @@
-**🚀 Instalación**
+# 🚀 Instalación
 
 1️⃣ Clona o descarga este repositorio
 
