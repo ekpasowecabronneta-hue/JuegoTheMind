@@ -11,87 +11,93 @@ Ideal para practicar programación estructurada y orientada a objetos en C++ y m
 
 ## 🕹️ Uso
 
-Ejecuta el programa compilado
+1. **Abre el siguiente link de telegram**
 
-make run
+  ```bash
+  https://t.me/mind_crupier_bot 
+  ```
 
 
-o directamente:
+2. **Menú Principal**
 
-./TheMind
+    * 🎮 **Nueva Partida** → Inicia una nueva sesión cooperativa (2 a 4 jugadores)
+    * 💾 **Cargar Partida** → Reanuda una partida guardada
+    * 🗂️ **Administrar Partidas** → Lista y elimina partidas guardadas
+    * 🚪 **Salir** → Cierra el juego
 
-**🎮 Menú Principal**
+3. **🧠 Nueva Partida**
 
-🎮 Nueva Partida → Inicia una nueva sesión cooperativa (2 a 4 jugadores)
-💾 Cargar Partida → Reanuda una partida guardada
-🗂️ Administrar Partidas → Lista y elimina partidas guardadas
-🚪 Salir → Cierra el juego
+    * Elige el número de jugadores (de 2 a 4)
+    * Ingresa un nombre para la partida (sin espacios)
+    * Se inicializan las vidas ❤️, shurikens ⭐ y el nivel actual
+    * Presiona Enter para comenzar
 
-**🧠 Nueva Partida**
+4. **Durante la Partida**
+  
+    *El juego se organiza por niveles, cada uno representado por una Ronda
+    *En cada nivel, el sistema reparte cartas desde el Mazo a cada Jugador
+    *Cada jugador almacena sus cartas en su ManoJugador (ordenadas automáticamente)
+    *Sin comunicarse, los jugadores deben jugar cartas en orden ascendente
 
-Elige el número de jugadores (de 2 a 4)
-Ingresa un nombre para la partida (sin espacios)
-Se inicializan las vidas ❤️, shurikens ⭐ y el nivel actual
-Presiona Enter para comenzar
+5. **Turno de juego:**
+   
+    +Un jugador usa jugarCarta()
+    *La carta se coloca en la PilaMesa
+    *La Ronda valida si la jugada es correcta:
+    *✔️ Si es mayor que la anterior → continúa la ronda
+    *❌ Si no → se considera error
+    *❌ Errores y Penalizaciones
+    *Si una carta rompe el orden:
+    *Se ejecuta esErrorDeSecuencia()
+    *Se aplica aplicarPenalizacion()
+    *El juego reduce vidas con reducirVida()
 
-**🎮 Durante la Partida**
-El juego se organiza por niveles, cada uno representado por una Ronda
-En cada nivel, el sistema reparte cartas desde el Mazo a cada Jugador
-Cada jugador almacena sus cartas en su ManoJugador (ordenadas automáticamente)
-Sin comunicarse, los jugadores deben jugar cartas en orden ascendente
+6. **⭐ Uso de Shurikens**
+    *Un jugador puede proponer usar un shuriken
+    *Si todos aceptan:
+    *usarShuriken() activa el efecto
+    *Cada jugador descarta su carta más baja (extraerMinima())
 
-**🔄 Turno de juego:**
-Un jugador usa jugarCarta()
-La carta se coloca en la PilaMesa
-La Ronda valida si la jugada es correcta:
-✔️ Si es mayor que la anterior → continúa la ronda
-❌ Si no → se considera error
-❌ Errores y Penalizaciones
-Si una carta rompe el orden:
-Se ejecuta esErrorDeSecuencia()
-Se aplica aplicarPenalizacion()
-El juego reduce vidas con reducirVida()
+7. **🔁 Progreso del Juego**
+    *Cuando todos los jugadores juegan sus cartas correctamente:
+    *Se completa la Ronda
+    *Se avanza al siguiente nivel (nivelActual++)
+    *Se reparten nuevas cartas
 
-**⭐ Uso de Shurikens**
-Un jugador puede proponer usar un shuriken
-Si todos aceptan:
-usarShuriken() activa el efecto
-Cada jugador descarta su carta más baja (extraerMinima())
+8. **🏆 Final del Juego**
+    *Si completan todos los niveles → ¡Victoria! 🎉
+    *Si las vidas llegan a 0 → Fin del juego
 
-**🔁 Progreso del Juego**
-Cuando todos los jugadores juegan sus cartas correctamente:
-Se completa la Ronda
-Se avanza al siguiente nivel (nivelActual++)
-Se reparten nuevas cartas
+9. **💾 Guardado y Carga**
+    *Las partidas se almacenan en la carpeta saves/
+    *se guarda el estado completo:
+    *jugadores
+    *mazo
+    *ronda actual
+    *vidas, shurikens y nivel
+   
+---
 
-**🏆 Final del Juego**
-Si completan todos los niveles → ¡Victoria! 🎉
-Si las vidas llegan a 0 → Fin del juego
+## ✨ Características
 
-**💾 Guardado y Carga**
-Las partidas se almacenan en la carpeta saves/
-Se guarda el estado completo:
-jugadores
-mazo
-ronda actual
-vidas, shurikens y nivel
+🧠 **Juego Cooperativo** — Todos ganan o pierden juntos
+🤫 **Sin Comunicación** — Basado en intuición
+📊 **Control por Niveles** — Aumenta la dificultad progresivamente
+💾 **Sistema de Guardado** — Persistencia completa del estado
+⚙️ **Arquitectura Modular** — Basada en clases como Juego, Ronda y Jugador
 
-**✨ Características**
+---
 
-🧠 Juego Cooperativo — Todos ganan o pierden juntos
-🤫 Sin Comunicación — Basado en intuición
-📊 Control por Niveles — Aumenta la dificultad progresivamente
-💾 Sistema de Guardado — Persistencia completa del estado
-⚙️ Arquitectura Modular — Basada en clases como Juego, Ronda y Jugador
+## 🔁 Ejemplo de Flujo de Juego
+  1. Se inicia una partida con el comando *********
+  2. El sistema prepara el nivel **********
+  3. Cada jugador recibe cartas del Mazo
+  4. Se inicia una Ronda
+  5. Los jugadores juegan cartas en orden:
+  6. Si aciertan → continúan
+  7. Si fallan → pierden vidas
+  8. Pueden usar shurikens estratégicamente
+  9. Se completa la ronda y se avanza de nivel
+  10. El juego termina al ganar o perder todas las vidas
 
-# 🔁 Ejemplo de Flujo de Juego
-Se inicia una partida con el comando *********
-El sistema prepara el nivel **********
-Cada jugador recibe cartas del Mazo
-Se inicia una Ronda
-Los jugadores juegan cartas en orden:
-Si aciertan → continúan
-Si fallan → pierden vidas
-Pueden usar shurikens estratégicamente
-Se completa la ronda y se avanza de nivel
-El juego termina al ganar o perder todas las vidas
+---
