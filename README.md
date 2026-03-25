@@ -1,193 +1,91 @@
-# Juego The Mind
-Una adaptación del **The Mind**, desarrollada en **C++** para consola, donde los jugadores deben colaborar para colocar cartas numeradas en orden ascendente sin comunicarse entre sí.  
+*🚀 Instalación
+1️⃣ Clona o descarga este repositorio
 
-Incluye **sistema de gestión de niveles, vidas y estrellas, control del mazo y las cartas jugadas**, y un **menú interactivo con reglas integradas** para facilitar la experiencia del jugador
-
-Ideal para practicar **programación estructurada y orientada a objetos en C++**, diseño de **lógica de juegos y manejo de estructuras de datos**.
-
----
-
-## 🚀 Instalación
-
-### 1️⃣ Clona o descarga este repositorio
-
-```bash
 git clone https://github.com/Santiagox01/JuegoColoretteCPP
-````
 
-### 2️⃣ Compila el juego
 
-```bash
-make 
-```
+2️⃣ Compila el juego
 
-> **Nota:** Asegúrate de que tu compilador soporte **C++11** o superior.
+make
 
----
 
-## 🕹️ Uso
+Nota: Asegúrate de que tu compilador soporte C++11 o superior.
 
-1. **Ejecuta el programa compilado**
+🕹️ Uso
 
-   ```bash
-   make run
-   ```
+Ejecuta el programa compilado
 
-   o directamente:
+make run
 
-   ```bash
-   ./Colorette
-   ```
 
-2. **Menú Principal:**
+o directamente:
 
-   * 🎮 **Nueva Partida** → Inicia una nueva sesión local (3 a 5 jugadores humanos)
-   * 💾 **Cargar Partida** → Reanuda una partida guardada
-   * 🗂️ **Administrar Partidas** → Lista y elimina partidas guardadas
-   * 🚪 **Salir** → Cierra el juego
+./TheMind
 
-3. **Nueva Partida:**
+🎮 Menú Principal
 
-   * Elige el número de jugadores (de 3 a 5)
-   * Ingresa un nombre para la partida (sin espacios)
-   * Se mostrarán las **reglas completas** del juego
-   * Presiona **Enter** para comenzar
+🎮 Nueva Partida → Inicia una nueva sesión cooperativa (2 a 4 jugadores)
+💾 Cargar Partida → Reanuda una partida guardada
+🗂️ Administrar Partidas → Lista y elimina partidas guardadas
+🚪 Salir → Cierra el juego
 
-4. **Durante la Partida:**
+🧠 Nueva Partida
+Elige el número de jugadores (de 2 a 4)
+Ingresa un nombre para la partida (sin espacios)
+Se inicializan las vidas ❤️, shurikens ⭐ y el nivel actual
+Presiona Enter para comenzar
+🎮 Durante la Partida
+El juego se organiza por niveles, cada uno representado por una Ronda
+En cada nivel, el sistema reparte cartas desde el Mazo a cada Jugador
+Cada jugador almacena sus cartas en su ManoJugador (ordenadas automáticamente)
+Sin comunicarse, los jugadores deben jugar cartas en orden ascendente
+🔄 Turno de juego:
+Un jugador usa jugarCarta()
+La carta se coloca en la PilaMesa
+La Ronda valida si la jugada es correcta:
+✔️ Si es mayor que la anterior → continúa la ronda
+❌ Si no → se considera error
+❌ Errores y Penalizaciones
+Si una carta rompe el orden:
+Se ejecuta esErrorDeSecuencia()
+Se aplica aplicarPenalizacion()
+El juego reduce vidas con reducirVida()
+⭐ Uso de Shurikens
+Un jugador puede proponer usar un shuriken
+Si todos aceptan:
+usarShuriken() activa el efecto
+Cada jugador descarta su carta más baja (extraerMinima())
+🔁 Progreso del Juego
+Cuando todos los jugadores juegan sus cartas correctamente:
+Se completa la Ronda
+Se avanza al siguiente nivel (nivelActual++)
+Se reparten nuevas cartas
+🏆 Final del Juego
+Si completan todos los niveles → ¡Victoria! 🎉
+Si las vidas llegan a 0 → Fin del juego
+💾 Guardado y Carga
+Las partidas se almacenan en la carpeta saves/
+Se guarda el estado completo:
+jugadores
+mazo
+ronda actual
+vidas, shurikens y nivel
+✨ Características
 
-   * Cada jugador puede **robar una carta** del mazo y colocarla en una fila
-   * O bien, **tomar una fila completa** de cartas disponibles
-   * Cuando todos los jugadores han tomado una fila, inicia una nueva ronda
-   * La carta **“Última Ronda”** marca el final del juego
+🧠 Juego Cooperativo — Todos ganan o pierden juntos
+🤫 Sin Comunicación — Basado en intuición
+📊 Control por Niveles — Aumenta la dificultad progresivamente
+💾 Sistema de Guardado — Persistencia completa del estado
+⚙️ Arquitectura Modular — Basada en clases como Juego, Ronda y Jugador
 
-5. **Puntuación Final:**
-
-   * Cada jugador elige **3 colores positivos**, los demás se cuentan como negativos
-   * Las cartas **+2** suman puntos extra
-   * El sistema aplica la tabla oficial de puntuación automáticamente
-
-6. **Guardado y Carga:**
-
-   * Las partidas se almacenan en la carpeta `saves/`
-   * Puedes cargarlas o eliminarlas desde el menú principal
-
----
-
-## ✨ Características
-
-🃏 **Modo Local Multijugador** — Hasta 5 jugadores humanos en una sola consola
-💾 **Sistema de Guardado Completo** — Guarda y reanuda partidas fácilmente
-📚 **Reglas Integradas** — Explicación detallada antes de comenzar
-🧠 **Estrategia Pura** — Elige bien tus colores positivos y negativos
-🗂️ **Gestor de Partidas** — Lista, carga o elimina tus partidas guardadas
-
----
-
-## 🧩 Arquitectura del Proyecto
-
-### 🔹 Clases Principales
-
-#### 🟨 `Juego`
-
-* **Responsabilidad:** Controla la lógica general de las partidas.
-* **Métodos principales:**
-
-  * `inicializarMazo(int jugadores)`
-  * `barajar()`
-  * `crearJugadores(int jugadores)`
-  * `repartirCartasIniciales()`
-  * `ejecutarJuegoConGuardado(string nombrePartida)`
-  * `cargarPartida(string ruta)`
-
-#### 🟩 `SaveManager`
-
-* **Responsabilidad:** Gestiona el guardado y la eliminación de partidas.
-* **Métodos principales:**
-
-  * `listarPartidas()`
-  * `eliminarPartida(string nombre)`
-  * `guardarPartida(string nombre, Estado estado)`
-
-#### 🟦 `Jugador`
-
-* **Responsabilidad:** Representar a un jugador humano.
-* **Atributos:**
-
-  * `nombre`, `cartas`
-* **Métodos:**
-
-  * `tomarFila()`
-  * `elegirColorPositivo()`
-
-#### 🟥 `Carta`
-
-* **Responsabilidad:** Representa una carta individual.
-* **Atributos:**
-
-  * `color`, `valor`
-* **Ejemplo:** cartas de color o carta especial “+2” o “Última Ronda”.
-
-#### 🟪 `Mazo`
-
-* **Responsabilidad:** Gestiona todas las cartas del juego.
-* **Métodos principales:**
-
-  * `barajar()`
-  * `robarCarta()`
-
-#### 🟫 `FilaDeJuego`
-
-* **Responsabilidad:** Representar las filas de cartas en la mesa.
-* **Métodos principales:**
-
-  * `agregarCarta(Carta c)`
-  * `estaCompleta()`
-
----
-
-## 📂 Estructuras de Datos
-
-### `EstadoPartida`
-
-Estructura que almacena el progreso completo del juego:
-
-* `mazo`: Cartas restantes
-* `jugadores`: Lista de jugadores y sus cartas
-* `filas`: Estado actual de las filas
-* `rondaActual`: Número de ronda
-* `ultimaRonda`: Indica si es la ronda final
-
----
-
-## 🔁 Ejemplo de Flujo de Juego
-
-1. Se eligen 3-5 jugadores y se asigna un nombre de partida
-2. Se prepara el mazo según las reglas del número de jugadores
-3. Cada jugador en su turno elige entre **robar** o **tomar una fila**
-4. Se repite hasta que todos hayan tomado una fila
-5. Al llegar la **Última Ronda**, se calcula la puntuación
-6. Se guardan los resultados automáticamente
-
----
-
-## 🤝 Contribuciones
-
-Si deseas mejorar el proyecto, contáctanos:
-
-* [@Santiagox01](https://github.com/Santiagox01)
-* [@YForondaa](https://github.com/YForondaa)
-* [@jaiderehaco-eng](https://github.com/jaiderehaco-eng)
-
----
-
-## 👨‍💻 Desarrollado por
-
-**Estudiantes del ITM:**
-
-* Santiago Jaramillo Valencia
-* Yenifer Foronda Hernandez
-* Jayder Alejandro Arias Arango
-
----
-
-🎨 **¡Disfruta de Colorette y demuestra tu mejor estrategia de colores!**
+🔁 Ejemplo de Flujo de Juego
+Se inicia una partida con iniciarPartida()
+El sistema prepara el nivel con prepararNivel()
+Cada jugador recibe cartas del Mazo
+Se inicia una Ronda
+Los jugadores juegan cartas en orden:
+Si aciertan → continúan
+Si fallan → pierden vidas
+Pueden usar shurikens estratégicamente
+Se completa la ronda y se avanza de nivel
+El juego termina al ganar o perder todas las vidas
