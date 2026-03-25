@@ -1,4 +1,5 @@
-*🚀 Instalación
+**🚀 Instalación**
+
 1️⃣ Clona o descarga este repositorio
 
 git clone https://github.com/Santiagox01/JuegoColoretteCPP
