@@ -171,4 +171,13 @@ El anfitrion ejecuta el comando de inicio: /start_mind game_1774552318_6vq9
   9. Se completa la ronda y se avanza de nivel
   10. El juego termina al ganar o perder todas las vidas
 
+## Comandos
+**PARA JUGAR**
+
+-/cards (para ver tus cartas)
+
+-/play (el numero de tu carta) con este comando puedes lanzar tu carta
+
+-/shuriken (Con este comando solicitas a los jugadores usar el comodin)
+
 
