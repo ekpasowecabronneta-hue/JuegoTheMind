@@ -75,16 +75,11 @@ Ideal para practicar programación estructurada y orientada a objetos en C++ y m
 6. **Iniciar la partida**
 
  *El anfitrion ejecuta el comando de inicio:
-
+ 
+ /start_mind game_1774552318_6vq9
+     
   
-   ```bash
-      /start_mind game_1774552318_6vq9
-    ``` 
-  
-
-
-
-8. **Turno de juego:**
+7. **Turno de juego:**
    
     +Un jugador usa jugarCarta()
     *La carta se coloca en la PilaMesa
