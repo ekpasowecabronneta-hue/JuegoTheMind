@@ -120,6 +120,7 @@ El anfitrion ejecuta el comando de inicio: /start_mind game_1774552318_6vq9
 
 -Se reparten nuevas cartas
 
+---
 
 ## 12. 🏆 Final del Juego
 
@@ -127,6 +128,7 @@ El anfitrion ejecuta el comando de inicio: /start_mind game_1774552318_6vq9
 
 -Si las vidas llegan a 0 → Fin del juego
 
+---
 
 ## 13. 💾 Guardado y Carga
 -Las partidas se almacenan 
@@ -141,7 +143,7 @@ El anfitrion ejecuta el comando de inicio: /start_mind game_1774552318_6vq9
 
 -vidas, shurikens y nivel
    
-
+---
 
 ## ✨ Características
 
@@ -155,7 +157,7 @@ El anfitrion ejecuta el comando de inicio: /start_mind game_1774552318_6vq9
 
 ⚙️ **Arquitectura Modular** — Basada en clases como Juego, Ronda y Jugador
 
-
+---
 
 ## 🔁 Ejemplo de Flujo de Juego
   1. Se inicia una partida con el comando 
