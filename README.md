@@ -41,7 +41,7 @@ Ideal para practicar programación estructurada y orientada a objetos en C++ y m
    *⚠️ Restricción:
    *Solo pueden unirse usuarios que pertenezcan al /team actual.
 
----   
+
 
 5. **🧠 Unirse a la Partida**
 
@@ -52,7 +52,7 @@ Ideal para practicar programación estructurada y orientada a objetos en C++ y m
      ```bash
       game_1774552318_6vq9
 
-  ```
+      ```
   ---
 5. **Ver el estado de la partida**
 
