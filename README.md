@@ -61,7 +61,6 @@ Ideal para practicar programación estructurada y orientada a objetos en C++ y m
      ```bash
       /game
   ```
----
 
  *Permite ver los jugadores registrados en la partida actual
 
@@ -71,7 +70,7 @@ Ideal para practicar programación estructurada y orientada a objetos en C++ y m
     *Cada jugador almacena sus cartas en su ManoJugador (ordenadas automáticamente)
     *Sin comunicarse, los jugadores deben jugar cartas en orden ascendente
 
----
+
 
 6. **Iniciar la partida**
 
@@ -83,7 +82,7 @@ Ideal para practicar programación estructurada y orientada a objetos en C++ y m
     ``` 
   
 
----
+
 
 8. **Turno de juego:**
    
@@ -96,7 +95,7 @@ Ideal para practicar programación estructurada y orientada a objetos en C++ y m
     *Si una carta rompe el orden:
     *Se pierde un vida
     
----
+
 
 9. **⭐ Uso de Shurikens**
     *Un jugador puede proponer usar un shuriken
@@ -104,20 +103,20 @@ Ideal para practicar programación estructurada y orientada a objetos en C++ y m
     *usarShuriken() activa el efecto
     *Cada jugador descarta su carta más baja 
 
----
+
 
 11. **🔁 Progreso del Juego**
     *Cuando todos los jugadores juegan sus cartas correctamente:
     *Se completa la Ronda
     *Se avanza al siguiente nivel (nivelActual++)
     *Se reparten nuevas cartas
----
+
 
 11. **🏆 Final del Juego**
     *Si completan todos los niveles → ¡Victoria! 🎉
     *Si las vidas llegan a 0 → Fin del juego
 
----
+
 
 13. **💾 Guardado y Carga**
     *Las partidas se almacenan 
@@ -127,7 +126,7 @@ Ideal para practicar programación estructurada y orientada a objetos en C++ y m
     *ronda actual
     *vidas, shurikens y nivel
    
----
+
 
 ## ✨ Características
 
@@ -137,7 +136,7 @@ Ideal para practicar programación estructurada y orientada a objetos en C++ y m
 💾 **Sistema de Guardado** — Persistencia completa del estado
 ⚙️ **Arquitectura Modular** — Basada en clases como Juego, Ronda y Jugador
 
----
+
 
 ## 🔁 Ejemplo de Flujo de Juego
   1. Se inicia una partida con el comando 
@@ -151,4 +150,4 @@ Ideal para practicar programación estructurada y orientada a objetos en C++ y m
   9. Se completa la ronda y se avanza de nivel
   10. El juego termina al ganar o perder todas las vidas
 
----
+
